@@ -80,9 +80,10 @@
 					<section data-markdown>
 						<script type="text/template">
 							## Variable
-							![img](images/code-for-beginners/brain.png)
 
-							Local storage
+							<img width="300" height="300" data-src="images/code-for-beginners/brain.png">
+
+							> Local storage
 						</script>
 					</section>
 					<section data-markdown>
@@ -147,7 +148,10 @@
 					<section data-markdown>
 						<script type="text/template">
 							## Operations
-							> ![img](images/code-for-beginners/operations.png)
+
+							<img width="300" height="300" data-src="images/code-for-beginners/operations.png">
+							
+							> Commands
 						</script>
 					</section>
 					<section data-markdown>
@@ -266,7 +270,9 @@
 						<script type="text/template">
 							## <img width="50" height="50" data-src="images/code-for-beginners/expression.png">Expressions
 							
-							Order of operations ( left 2 right )
+							Order of operations 
+							
+							( LEFT to RIGHT )
 
 							|||
 							|---|---|
@@ -325,9 +331,9 @@
 						<script type="text/template">
 							## Value conversion
 							
-							![img](images\code-for-beginners\conversion.png)
+							<img width="300" height="300" data-src="images/code-for-beginners/conversion.png">
 
-							> Number :::to::: String  
+							> <font color="#1b91ff">Type **A**</font> < == > <font color="red">Type **B**</font>
 						</script>
 					</section>
 					<section data-markdown>
@@ -400,12 +406,9 @@
 						<script type="text/template">
 							## Boolean
 							
-							![img](images/code-for-beginners/boolean.png)
+							<img width="300" height="300" data-src="images/code-for-beginners/boolean.png">
 
-							||||
-							|---|---|---|
-							| <font color="#1b91ff">bool</font> | true | false |
-							||
+							> bool = <font color="#1b91ff">true</font> | <font color="red">false</font>
 						</script>
 					</section>
 					<section data-markdown>
@@ -488,17 +491,206 @@
 					</section>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Flowcontrols
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## Flowcontrols
+							
+							<img width="300" height="300" data-src="images/code-for-beginners/flowcontrol.ico">
+							
+							> Depend on condition
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> if
+							> ```
+							if( CONDITION )
+							{
+								// true: goto here
+							}
+							// false, goto here
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> if
+							> ```
+							int a = 4;
+							if( 8 > 5 )
+							{
+								a = 7;
+							}
+							int b = a;         // b = 7
+							```
+							```
+							int a = 4;
+							if( 8 < 5 )
+							{
+								a = 7;
+							}
+							int b = a;         // b = 4
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> if ... else
+							> ```
+							if( CONDITION )
+							{
+								// true: goto here
+							}
+							else
+							{
+								// false, goto here
+							}
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> if ... else
+							> ```
+							int a = 4;
+							if( 8 < 5 )
+							{
+								a = 7;
+							}
+							else
+							{
+								a = 33;
+							}
+							int b = a;         // b = 33
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> if ... else ... if
+							> ```
+							if( CONDITION 1 )
+							{
+								// CONDITION 1 = true: goto here
+							}
+							else if( CONDITION 2 )
+							{
+								// CONDITION 2 = true: goto here
+							}
+							...
+							else
+							{
+								// Not meet any conditions: goto here
+							}
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> Nested if
+							> ```
+							if( CONDITION 1 )
+							{
+								// CONDITION 1 = true: goto here
+								if( CONDITION 2 )
+								{
+									// CONDITION 2 = true: goto here
+								}
+								else
+								{
+									// CONDITION 2 = false: goto here
+								}
+							}
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> Nested if
+							> ```
+							int a = 4;
+							if( 8 > 5 )
+							{
+								a += 4;
+								if( 7 > 10 )
+								{
+									a += 4;
+								}
+								else
+								{
+									a -= 2;
+								}
+							}
+							int b = a;         // b = 6
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> <font color="red">Scope</font> of if
+							> ```
+							int a = 4;
+							if( CONDITION )
+								a++;
+							a++;
+							a++;
+							int b = a;
+							```
 
-						![img](images/underconstruction.png)
+							> | Condition | Final B result |
+							|---|---|
+							| true | 7 |
+							| false | 6 |
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
+							
+							> switch .. case
+							> ```
+							switch( VALUE )
+							{
+								case A: 
+									// if VALUE = A: goto here
+									break;
+								case B: 
+									// if VALUE = B: goto here
+									break;
+								case ...
+								default: 
+									// Not match any cases: goto here
+									break;
+							}
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/flowcontrol.ico"> Flowcontrols
 
-						* if, if..else, if..else..if, nested if
-						* switch..case
-						* while, do..while
-						* for
-					</script>
+							![img](images/underconstruction.png)
+							* while, do..while
+							* for
+						</script>
+					</section>
 				</section>
 
 				<section data-markdown>

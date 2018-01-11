@@ -41,10 +41,12 @@
 						## Agenda
 						* Data types
 						* Variable
-						* Operations & Expressions
-						* Flowcontrols (part 1)
+						* Operations 
+						* Expressions
+						* Value conversion
+						* Boolean
+						* Flowcontrols
 						* Array and Iteration
-						* Flowcontrols (part 2)
 						* Value types VS Reference types
 					</script>
 				</section>
@@ -101,20 +103,41 @@
 						<script type="text/template">
 							## <img width="50" height="50" data-src="images/code-for-beginners/brain.png"> Variable
 
-							<font color="#ff2c2d">DO NOT!</font>
+							> <font color="#ff2c2d">DO NOT!</font>
 							1. Duplicate
 							1. Spacing
 							1. Number first
 							1. Special character !#$%^&*()+|-*/.")('
 							1. Reserved name
 
-							```
+							> ```
 							int money;
 							double money;      // error: Duplicate
 							double your name;  // error: Spacing
 							double 1money;     // error: Number first
 							double h#ello;     // error: Special character
 							double string;     // error: Reserved name
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/brain.png"> Variable
+
+							Case sensitive
+
+							```
+							int money;
+							int Money;
+							int mOney
+							int moNey;
+							int monEy;
+							int moneY;
+							string MONEY;
+							```
+							```
+							Console.WriteLine("Hello");
+							Console.writeline("Hello");  // error: writeLine command not found
 							```
 						</script>
 					</section>
@@ -215,7 +238,8 @@
 						<script type="text/template">
 							## <img width="50" height="50" data-src="images/code-for-beginners/operations.png"> Operations
 
-							> <font color="#ff2c2d">++</font> Increment <font color="#ff2c2d">--</font> Decrement
+							> <font color="#ff2c2d">++</font> Increment
+							<font color="#ff2c2d">--</font> Decrement
 							```
 							int a = 5;
 							a += 1;            // a = 6
@@ -229,15 +253,276 @@
 					</section>
 				</section>
 
-				<section data-markdown>
+				<section>
+					<section data-markdown>
 						<script type="text/template">
 							## Expressions
-							* Flowcontrols (part 1)
-							* Array and Iteration
-							* Flowcontrols (part 2)
-							* Value types VS Reference types
+							
+							![img](images\code-for-beginners\expression.png)
+							> 1 + 1 + 1 x 0 = ?
 						</script>
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/expression.png">Expressions
+							
+							Order of operations ( left 2 right )
+
+							|||
+							|---|---|
+							| 1.Bracket | ( ) |
+							| 2.Prefix | ++ -- |
+							| 3.Multiplicative | * / |
+							| 4.Additive | + - |
+							| 5.Postfix | ++ -- |
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/expression.png">Expressions
+							
+							> 1 + 1 + <span class="fragment highlight-red">1 x 0</span> = ?
+							<div class="fragment"><span class="fragment highlight-red">1 + 1</span> + 0</div>
+							<div class="fragment"><span class="fragment highlight-red">2 + 0</span></div>
+							<div class="fragment">2</div>
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/expression.png">Expressions
+							
+							> 3 + 6 / 2 x 10 - <span class="fragment highlight-red">(1 + 2)</span> = ?
+							> <div class="fragment">3 + <span class="fragment highlight-red">6 / 2</span> x 10 - 3</div>
+							> <div class="fragment">3 + <span class="fragment highlight-red">3 x 10</span> - 3</div>
+							> <div class="fragment"><span class="fragment highlight-red">3 + 30</span> - 3</div>
+							> <div class="fragment"><span class="fragment highlight-red">33 - 3</span></div>
+							> <div class="fragment">30</div>
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/expression.png">Expressions
+							
+							> Prefix
+							```
+							int a = 3;
+							int b = ++a;       // a = 4, b = 4
+							int c = a;         // c = 4
+							```
+							
+							> Postfix
+							```
+							int a = 3;
+							int b = a++;       // b = 3
+							int c = a;         // c = 4
+							```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## Value conversion
+							
+							![img](images\code-for-beginners\conversion.png)
+
+							> Number :::to::: String  
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/conversion.png"> Value conversion
+							
+							* Implicit conversions (automatic)
+
+							```
+							int a = 3;
+							double b = a;      // convert int to double
+							int c = b;         // error: no magic for this case (double to int)
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/conversion.png"> Value conversion
+							
+							* Explicit conversions (casts)  
+
+							> *data loss might occur*
+							```
+							double a = 3.47;
+							int b = (int)a;    // casting from 3.47 to 3
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/conversion.png"> Value conversion
+							
+							* Convert any types to a String
+
+							>  <font color="red">VariableName</font><font color="#1b91ff">.ToString()</font>
+							```
+							int a = 3;
+							string b = a.ToString();     // b = "3"
+							double c = 1.2345;
+							string d = c.ToString();     // d = "1.2345"
+							string e = "Hello";
+							string f = e.ToString();     // f = "Hello"
+							string g = 55.ToString();    // g = "55"
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/conversion.png"> Value conversion
+							
+							* Convert a String to a Number
+
+							>  <font color="red">DataType</font><font color="#1b91ff">.Parse(</font><font color="#17ff2e"> StringValue </font><font color="#1b91ff">)</font>
+							```
+							string a = "3";
+							int b = int.Parse(a);              // b = 3
+							double c = double.Parse(a);        // c = 3
+							double d = double.Parse("3.25");   // d = 3.25
+							```
+							```
+							int d = int.Parse("3.25");         // error
+							int e = (int)double.Parse("3.25"); // e = 3
+							```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## Boolean
+							
+							![img](images/code-for-beginners/boolean.png)
+
+							||||
+							|---|---|---|
+							| <font color="#1b91ff">bool</font> | true | false |
+							||
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/boolean.png"> Boolean
+
+							Comparison operators
+
+							|Operator|Example|Result|
+							|---|---|---|
+							| > | 3 > 1 | true |
+							| < | 3 < 1 | false |
+							| == | 3 == 1 | false |
+							| != | 3 != 1 | true |
+							| >= | 3 >= 1 | true |
+							| <= | 3 <= 1 | false |
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/boolean.png"> Boolean
+
+							Logic operators
+
+							|Symbol|Pronunciation|
+							|---|---|
+							| & | And |
+							| &#124; | Or |
+							| ! | Not |
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/boolean.png"> Boolean
+
+							<font color="red">&</font> AND
+
+							> **( Only true & true = true )**
+							
+							||||
+							|---|---|---|
+							| true & true | = | <font color="#1b91ff">true</font> |
+							| true & false | = | false |
+							| false & true | = | false |
+							| false & false | = | false |
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/boolean.png"> Boolean
+
+							<font color="red">&#124;</font> OR
+
+							> **( Any true = true )**
+							
+							||||
+							|---|---|---|
+							| true &#124; true | = | <font color="#1b91ff">true</font> |
+							| true &#124; false | = | <font color="#1b91ff">true</font> |
+							| false &#124; true | = | <font color="#1b91ff">true</font> |
+							| false &#124; false | = | false |
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## <img width="50" height="50" data-src="images/code-for-beginners/boolean.png"> Boolean
+
+							<font color="red">!</font> NOT
+
+							> **( Opposite )**
+							
+							||||
+							|---|---|---|
+							| !true | = | false |
+							| !false | = | true |
+
+						</script>
+					</section>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Flowcontrols
+
+						![img](images/underconstruction.png)
+
+						* if, if..else, if..else..if, nested if
+						* switch..case
+						* while, do..while
+						* for
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Array and Iteration
+
+						![img](images/underconstruction.png)
+
+						* Array
+						* Indexing
+						* Foreach
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						### Value types vs Reference types
+
+						![img](images/underconstruction.png)
+
+						* Null
+						* Default value
+					</script>
+				</section>
 
 				<section style="text-align: left;" data-markdown>
 					# THE END

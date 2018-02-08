@@ -28,74 +28,125 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						> <img width="240" height="240" data-src="images/csharp.svg">
-						## C# fundamental
-
-						<small>Created by <a href="https://github.com/Sakul">Sakul Jaruthanaset</a></small>
-						<small>@<a href="http://www.saladpuk.com">SaladPuk</a></small>
+						> <img width="300" height="300" data-src="images/boolean.png">
+						## Boolean
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						> <img width="300" height="300" data-src="images/agenda.png">
-						## Table of Contents
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## <img width="70" height="70" data-src="images/agenda.png"> Table of Contents (1)
-						* [What & Why C#](what-n-why-csharp.html)
-						* [IDE tools](ide-tools.html)
-						* [Basic Structure of a C# Program](basic-structure.html)
-						* [Data types](data-types.html)
-						* [Naming a variable](naming-a-variable.html)
-						* [Basic operations](basic-operations.html)
-						* [Type conversions](type-conversions.html)
-						* [Boolean](boolean.html)
-						* Control flow statements
-						* Array
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## <img width="70" height="70" data-src="images/agenda.png"> Table of Contents (2)
-						* Methods
-						* Value type VS Reference type
-						* Enum & Struct
-						* LINQ
-						* Array Properties and Methods
-						* String Properties and Methods
-						* Exception handling
-						* Generic collection
-						* OOP
+						## <img width="50" height="50" data-src="images/boolean.png"> Boolean
+
+						Comparison operators
+
+						|Operator|Example|Result|
+						|---|---|---|
+						| > | 3 > 1 | true |
+						| < | 3 < 1 | false |
+						| == | 3 == 1 | false |
+						| != | 3 != 1 | true |
+						| >= | 3 >= 1 | true |
+						| <= | 3 <= 1 | false |
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						# To be continue ...
-						## Control flow statements
-							> Break, Continue & Jump
-						* Array
-						* Methods
-						* Value type VS Reference type
-						* Enum & Struct
-						* LINQ
-						* Array Properties and Methods
-						* String Properties and Methods
-							> StringBuilder
-						* Exception handling
-						* Generic collection
-						* OOP
-							> Sample
+						## <img width="50" height="50" data-src="images/boolean.png"> Boolean
+
+						Logic operators
+
+						|Symbol|Pronunciation|
+						|---|---|
+						| & | And |
+						| &#124; | Or |
+						| ! | Not |
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## <img width="50" height="50" data-src="images/boolean.png"> Boolean
+
+						> AND operator
+						## <font color="red">&</font>
+						
+						||||
+						|---|---|---|
+						| true & true | = | <font color="#1b91ff">true</font> |
+						| true & false | = | false |
+						| false & true | = | false |
+						| false & false | = | false |
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## <img width="50" height="50" data-src="images/boolean.png"> Boolean
+
+						> OR operator
+						## <font color="red">&#124;</font>
+						
+						||||
+						|---|---|---|
+						| true &#124; true | = | <font color="#1b91ff">true</font> |
+						| true &#124; false | = | <font color="#1b91ff">true</font> |
+						| false &#124; true | = | <font color="#1b91ff">true</font> |
+						| false &#124; false | = | false |
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## <img width="50" height="50" data-src="images/boolean.png"> Boolean
+
+						> NOT operator
+						## <font color="red">!</font>
+
+						||||
+						|---|---|---|
+						| !true | = | false |
+						| !false | = | true |
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## <img width="50" height="50" data-src="images/boolean.png"> Boolean
+
+						Condition Statements
+
+						```
+						int dogs = 10;
+						int cats = 7;
+						```
+
+						<div class="fragment">
+						```
+						bool areDogsSmarterThanCats = dogs > cats;             // true
+						```
+						</p>
+
+						<div class="fragment">
+							<small>**Age restrictions in night clubs:** Age 18+ or you have a green card.</small>
+						</p>
+
+						<div class="fragment">
+						```
+						int age = 17;
+						bool haveAGreenCard = true;
+						bool isAllowedToEnter = age >= 18 | haveAGreenCard;    // true
+						```
+						</p>
 					</script>
 				</section>
 
 				<section style="text-align: left;" data-markdown>
 					# THE END
 					
-					[Goto main course](index.html)
+					[Goto main course](index.html#/1/1)
 				</section>
 
 			</div>

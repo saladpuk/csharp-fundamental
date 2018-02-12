@@ -50,18 +50,41 @@
 						Syntax
 
 						```
+						switch ( EXPRESSION )
+						{
+							case PATTERN1:
+								// Do something
+								break;
+							case PATTERN2:
+								// Do something
+								break;
+							default:
+								// Do something
+								break;
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/if-statements.png"> Switch statement</h1>
+						
+						Example
+
+						```
 						int choice = 1;
 
 						switch (choice)
 						{
 							case 1:
-								// Do something
+								Console.WriteLine("A");
 								break;
 							case 2:
-								// Do something
+								Console.WriteLine("B");
 								break;
 							default:
-								// Do something
+								Console.WriteLine("C");
 								break;
 						}
 						```
@@ -179,6 +202,31 @@
 								break;
 							case 3:
 								Console.WriteLine("B");
+								break;
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/if-statements.png"> Switch statement</h1>
+						
+						Type pattern and `when` clause  
+
+						```
+						object obj = 6;
+
+						switch (obj)
+						{
+							case int a:
+								Console.WriteLine("A");
+								break;
+							case double a when a > 12:
+								Console.WriteLine("B");
+								break;
+							default: 
+								Console.WriteLine("C");
 								break;
 						}
 						```

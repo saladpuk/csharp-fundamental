@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>C# Fundamental</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-markdown>
+					<script type="text/template">
+						> <img width="300" height="300" data-src="images/loop.png">
+						<h2>While loop</h2>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						
+						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/while)
+
+						The `while` statement executes a statement or a block of statements until a specified expression evaluates to `false`.
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						
+						Syntax
+
+						```
+						while( CONDITION )
+						{
+							// Do something
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						
+						Example
+
+						```
+						int count = 1;
+
+						while( count <= 3 )
+						{
+							Console.WriteLine("Round: " + count);
+							count++;
+						}
+
+						Console.WriteLine("End")
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						
+						โปรแกรมนับเลข 1~5
+
+						```
+						int count = 1;
+						int maximumCount = 5
+
+						while( count <= maximumCount )
+						{
+							Console.WriteLine(count++);
+						}
+						```
+
+						<small class="fragment">
+							1  
+							2  
+							3  
+							4  
+							5  
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/caution.png"> While loop</h1>
+						
+						Infinity loop
+
+						```
+						while( true )
+						{
+							Console.WriteLine("Hello");
+						}
+
+						Console.WriteLine("Hi");
+						```
+
+						<small class="fragment">
+							Hello  
+							Hello  
+							Hello  
+							Hello  
+							Hello  
+							Hello  
+							Hello  
+							Hello  
+							...
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						
+						<font color="red">**break**</font>  
+						<small>The break statement terminates the closest enclosing loop or switch statement.</small>
+
+						```
+						while( true )
+						{
+							Console.WriteLine("Good morning");
+							break;
+							Console.WriteLine("Hello");
+						}
+
+						Console.WriteLine("Hi");
+						```
+
+						<small class="fragment" align="left">
+							Good morning  
+							Hello  
+							Hi
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						
+						<font color="red">**continue**</font>  
+						<small>The continue statement passes control to the next iteration of the enclosing while, do, for, or foreach statement in which it appears.</small>
+
+						```
+						int count = 1;
+						while( count <= 2 )
+						{
+							count++;
+							Console.WriteLine("Good morning");
+							continue;
+							Console.WriteLine("Hello");
+						}
+
+						Console.WriteLine("Hi");
+						```
+
+						<small class="fragment" align="left">
+							Good morning  
+							Good morning  
+							Hi
+						</small>
+					</script>
+				</section>
+
+				<section style="text-align: left;" data-markdown>
+					# THE END
+					
+					[Goto main course](index.html#/1/1)
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

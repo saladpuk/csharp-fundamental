@@ -29,30 +29,30 @@
 				<section data-markdown>
 					<script type="text/template">
 						> <img width="300" height="300" data-src="images/loop.png">
-						<h2>While loop</h2>
+						<h2>For loop</h2>
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						<h2><img width="50" height="50" data-src="images/loop.png"> For loop</h1>
 						
-						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/while)
+						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/for)
 
-						The `while` statement executes a statement or a block of statements until a specified expression evaluates to `false`.
+						By using a for loop, you can run a statement or a block of statements repeatedly until a specified expression evaluates to false. This kind of loop is useful for iterating over arrays and for other applications in which you know in advance how many times you want the loop to iterate.
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						<h2><img width="50" height="50" data-src="images/loop.png"> For loop</h1>
 						
 						Syntax
 
 						```
-						while( CONDITION )
+						for( INITIALIZER ; CONDITION ; ITERATOR )
 						{
-							// Do something
+							// DO something
 						}
 						```
 					</script>
@@ -60,128 +60,124 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						<h2><img width="50" height="50" data-src="images/loop.png"> For loop</h1>
 						
 						Example
 
 						```
-						int count = 1;
-
-						while( count <= 3 )
+						for(int count = 1; count <= 3; count++)
 						{
 							Console.WriteLine("Round: " + count);
-							count++;
 						}
 
 						Console.WriteLine("End")
 						```
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
-						
-						โปรแกรมนับเลข 1~5
-
-						```
-						int count = 1;
-						int maximumCount = 5
-
-						while( count <= maximumCount )
-						{
-							Console.WriteLine(count++);
-						}
-						```
-
-						<small class="fragment">
-							1  
-							2  
-							3  
-							4  
-							5  
-						</small>
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/caution.png"> While loop</h1>
-						
-						Infinity loop
-
-						```
-						while( true )
-						{
-							Console.WriteLine("Hello");
-						}
-
-						Console.WriteLine("Hi");
-						```
-
-						<small class="fragment">
-							Hello  
-							Hello  
-							Hello  
-							Hello  
-							Hello  
-							Hello  
-							Hello  
-							Hello  
-							...
-						</small>
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
-						
-						<font color="red">**break**</font>  
-						<small>The break statement terminates the closest enclosing loop or switch statement.</small>
-
-						```
-						while( true )
-						{
-							Console.WriteLine("Good morning");
-							break;
-							Console.WriteLine("Hello");
-						}
-
-						Console.WriteLine("Hi");
-						```
 
 						<small class="fragment" align="left">
-							Good morning  
-							Hi
+							Round: 1  
+							Round: 2  
+							Round: 3  
+							End
 						</small>
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/loop.png"> While loop</h1>
+						<h2><img width="50" height="50" data-src="images/loop.png"> For loop</h1>
 						
-						<font color="red">**continue**</font>  
-						<small>The continue statement passes control to the next iteration of the enclosing while, do, for, or foreach statement in which it appears.</small>
-
 						```
 						int count = 1;
-						while( count <= 2 )
+						while( count <= 3 )
 						{
+							Console.WriteLine("A");
 							count++;
-							Console.WriteLine("Good morning");
-							continue;
-							Console.WriteLine("Hello");
 						}
+						```
 
-						Console.WriteLine("Hi");
+						```
+						for(int count = 1; count <= 3; count++)
+						{
+							Console.WriteLine("A");
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> For loop</h1>
+						
+						```
+						for(int count = 1; count <= 3; count++)
+							Console.WriteLine("A");
+						Console.WriteLine("B");
+						Console.WriteLine("C");
 						```
 
 						<small class="fragment" align="left">
-							Good morning  
-							Good morning  
-							Hi
+							A  
+							A  
+							A  
+							B  
+							C  
+							End
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> For loop</h1>
+						
+						<small>
+							Initializer, Condition & Iterator จะมีหรือไม่มีก็ได้  
+							<font color="red">แต่ถ้าไม่มี Condition จะได้ infinite loop</font>
+						</small>
+
+						```
+						for(             ; CONDITION ; ITERATOR )
+						{
+						}
+						```
+
+						```
+						for( INITIALIZER ;           ; ITERATOR )
+						{
+						}
+						```
+
+						```
+						for( INITIALIZER ; CONDITION ;          )
+						{
+						}
+						```
+
+						```
+						for(             ;           ;          )
+						{
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/loop.png"> For loop</h1>
+						
+						Initializer & Iterator สามารถมีได้มากกว่า 1 ตัว  
+						ใช้เครื่องหมาย , ในการแยก
+
+						```
+						for(int count = 1, limit = 3; count <= limit; count++, limit--)
+						{
+							Console.WriteLine("Count: " + count + ", Limit: " + limit);
+						}
+						```
+
+						<small class="fragment" align="left">
+							Count: 1, Limit: 3  
+							Count: 2, Limit: 2
 						</small>
 					</script>
 				</section>

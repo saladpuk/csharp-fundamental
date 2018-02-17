@@ -29,13 +29,13 @@
 				<section data-markdown>
 					<script type="text/template">
 						> <img width="300" height="300" data-src="images/array.png">
-						<h2>Array</h2>
+						<h2>Arrays</h2>
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/array.png"> Array</h1>
+						<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
 						
 						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays)
 
@@ -45,7 +45,7 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/array.png"> Array</h1>
+						<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
 						
 						Syntax - create a new variable
 
@@ -63,7 +63,7 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/array.png"> Array</h1>
+						<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
 						
 						Syntax - initialize an array variable
 
@@ -82,7 +82,7 @@
 				<section>
 					<section data-markdown>
 						<script type="text/template">
-							<h2><img width="50" height="50" data-src="images/array.png"> Array</h1>
+							<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
 							
 							Visualization
 	
@@ -95,7 +95,7 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							<h2><img width="50" height="50" data-src="images/array.png"> Array</h1>
+							<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
 							
 							Visualization
 	
@@ -110,7 +110,7 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/array.png"> Array</h1>
+						<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
 						
 						![img](images/array-02.png)
 
@@ -129,7 +129,7 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/array.png"> Array</h1>
+						<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
 						
 						Array Initialization
 
@@ -142,7 +142,7 @@
 
 						<div class="fragment">
 						```
-						int[] students = new int[]{ 2, 5, 9 };
+						int[] students = new int[] { 2, 5, 9 };
 						string[] days = new string[] { "Sun", "Mon", "Tue", "Wed" };
 						```
 						</p>
@@ -151,6 +151,36 @@
 						```
 						int[] students = { 2, 5, 9 };
 						string[] days = { "Sun", "Mon", "Tue", "Wed" };
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
+						
+						Multidimensional Arrays
+
+						```
+						int[,] students = new int[2, 2];
+						```
+
+						<div class="fragment">
+						![img](images/array-04.png)
+						</div>
+
+						<div class="fragment">
+						```
+						student[0,1] = 5;
+						student[1,1] = 99;
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						int[,,] students = new int[2, 2, 4];
+						students[0, 0, 3] = 5;
 						```
 						</p>
 					</script>

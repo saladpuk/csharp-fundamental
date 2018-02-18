@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>C# Fundamental</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-markdown>
+					<script type="text/template">
+						> <img width="300" height="300" data-src="images/methods.png">
+						<h2>Methods</h2>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods)
+
+						A method is a code block that contains a series of statements. A program causes the statements to be executed by calling the method and specifying any required method arguments.
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						Method Signatures
+
+						<small>
+							Methods are declared in a <font color="#1b91ff">class</font> or <font color="#1b91ff">struct</font> by specifying the <font color="#ff2c2d">access level</font>, the <font color="#ff2c2d">return value</font>, the <font color="#ff2c2d">name</font> of the method, and any method <font color="#ff2c2d">parameters</font>.
+						</small>
+
+						<div class="fragment">
+						<small>
+						<font color="#ff00ff">AccessLevel</font> <font class="fragment" color="#1b91ff">ReturnValue </font><font class="fragment" color="#17ff2e">Name</font><font class="fragment" color="#ff2c2d">( Parameters )</font><font class="fragment">{ }</font>
+						</small>
+						</div>
+
+						<div class="fragment">
+						```
+						using System;
+
+						namespace ConsoleApp1
+						{
+							class Program
+							{
+								static void Main(string[] args)
+								{
+								}
+							}
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						Method พื้นฐาน ไม่มี parameters และไม่ return
+
+						```
+						void MyMethod()
+						{
+						}
+						```
+
+						<div class="fragment">
+						<hr/>
+						```
+						void MyMethod()
+						{
+							Console.WriteLine("Hi!");
+							Console.WriteLine("This message from basic method.");
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						วิธีการเรียกใช้งาน method ที่สร้างไว้
+
+						```
+						class Program
+						{
+							static void Main(string[] args)
+							{
+								MyMethod();
+							}
+
+							static void MyMethod()
+							{
+								Console.WriteLine("Hi!");
+								Console.WriteLine("This message from basic method.");
+							}
+						}
+						```
+
+						<small class="fragment" align="left">
+							Hi!  
+							This message from basic method.
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						Method ที่มี parameter
+
+						```
+						void MyMethod(string name)
+						{
+							Console.WriteLine("Hi " + name);
+						}
+						```
+
+						<div class="fragment">
+						<hr/>
+						```
+						static void Main(string[] args)
+						{
+							MyMethod("John");
+						}
+
+						static void MyMethod(string name)
+						{
+							Console.WriteLine("Hi " + name);
+						}
+						```
+						</p>
+
+						<small class="fragment" align="left">
+							Hi John
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						Method ที่มี parameter หลายตัว
+
+						```
+						void Add(int first, int second)
+						{
+							int result = first + second;
+							Console.WriteLine("Result: " + result);
+						}
+						```
+
+						<div class="fragment">
+						<hr/>
+						```
+						static void Main(string[] args)
+						{
+							Add(3, 5);
+						}
+
+						static void void Add(int first, int second)
+						{
+							int result = first + second;
+							Console.WriteLine("Result: " + result);
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						Return type  
+						<small>
+						void = เมื่อทำงานเสร็จจะไม่ส่งอะไรกลับมา
+						</small>
+						```
+						void MyMethod()
+						{
+						}
+						```
+
+						<div class="fragment">
+						<hr/>
+
+						```
+						static void Main(string[] args)
+						{
+							MyMethod();
+						}
+
+						static void MyMethod()
+						{
+							// Do something
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						Return type  
+						<small>
+						DataType = เมื่อทำงานเสร็จจะส่งข้อมูลที่เป็น data type ที่ระบุกลับมา
+						</small>
+						```
+						int MyMethod()
+						{
+							return 5;
+						}
+						```
+						</p>
+
+						<div class="fragment">
+						<hr/>
+
+						```
+						static void Main(string[] args)
+						{
+							int result = MyMethod();
+						}
+
+						static int MyMethod()
+						{
+							return 5;
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						ตัวอย่าง เขียน method ในการคำนวณหาพื้นที่สามเหลี่ยม
+						
+						```
+						static double GetAreaOfTriangle(int width, int height)
+						{
+							return 0.5 * width * height;  // 1/2 x ฐาน x สูง
+						}
+
+						static void Main(string[] args)
+						{
+							double result1 = GetAreaOfTriangle(2, 5);
+							Console.WriteLine("The 1st result is: " + result1);
+
+							double result2 = GetAreaOfTriangle(30, 6);
+							Console.WriteLine("The 2nd result is: " + result2);
+						}
+						```
+
+						<small class="fragment" align="left">
+							The 1st result is: 5  
+							The 2nd result is: 90
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						When to use methods?
+						
+						```
+						static void Main(string[] args)    static void Main(string[] args)
+						{                                  {
+						    Console.WriteLine("A");           Prints();
+						    Console.WriteLine("B");           Prints();
+							Console.WriteLine("C");           Prints();	
+						                                   }
+						    Console.WriteLine("A");		
+						    Console.WriteLine("B");	    static void Prints()
+						    Console.WriteLine("C");        {
+								                              Console.WriteLine("A");
+						    Console.WriteLine("A");           Console.WriteLine("B");
+						    Console.WriteLine("B");           Console.WriteLine("C");
+						    Console.WriteLine("C");        }
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						<small>
+							Reference types เมื่อทำงานกับ method
+						</small>
+						
+						```
+						static void ChangeFirstValueToFive(int[] a)
+						{
+							a[0] = 5;
+							Console.WriteLine("a[0] in other method is " + a[0]);
+						}
+
+						static void Main(string[] args)
+						{
+							int[] a = { 1, 2, 3 };
+							ChangeFirstValueToFive(a);
+							Console.WriteLine("a[0] in Main method is " + a[0]);
+						}
+						```
+
+						<small class="fragment" align="left">
+							a[0] in other method is 5  
+							a[0] in Main method is 5
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						<small>
+							Value types เมื่อทำงานกับ method
+						</small>
+						
+						```
+						static void ChangeValueToFive(int a)
+						{
+							a = 5;
+							Console.WriteLine("a in other method is " + a);
+						}
+
+						static void Main(string[] args)
+						{
+							int a = 3;
+							ChangeValueToFive(a);
+							Console.WriteLine("a in Main method is " + a);
+						}
+						```
+
+						<small class="fragment" align="left">
+							a in other method is 5  
+							a in Main method is 3
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						<small>
+							[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref)  
+							ref keyword
+						</small>
+						
+						```
+						static void ChangeValueToFive(ref int a)
+						{
+							a = 5;
+							Console.WriteLine("a in other method is " + a);
+						}
+
+						static void Main(string[] args)
+						{
+							int a = 3;
+							ChangeValueToFive(ref a);
+							Console.WriteLine("a in Main method is " + a);
+						}
+						```
+
+						<small class="fragment" align="left">
+							a in other method is 5  
+							a in Main method is 5
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						<small>
+							[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier)  
+							out keyword
+						</small>
+						
+						```
+						static void ChangeValueToFive(out int a)
+						{
+							a = 5;
+							Console.WriteLine("a in other method is " + a);
+						}
+
+						static void Main(string[] args)
+						{
+							int a;
+							ChangeValueToFive(out a);
+							Console.WriteLine("a in Main method is " + a);
+						}
+						```
+
+						<small class="fragment" align="left">
+							a in other method is 5  
+							a in Main method is 5
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						<small>
+							การส่งค่าที่เป็น array ให้กับ method
+						</small>
+						
+						```
+						static void ShowAverage(int[] data)
+						{
+							double sum = 0;
+							for (int i = 0; i < data.Length; i++)
+							{
+								sum += data[i];
+							}
+							Console.WriteLine("Average is " + aversum / data.Lengthage);
+						}
+						static void Main(string[] args)
+						{
+							int[] scores = { 20, 15, 7, 63, 44 };
+							ShowAverage(scores);
+						}
+						```
+
+						<small class="fragment" align="left">
+							Average is 29.8
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/methods.png"> Methods</h1>
+
+						<small>
+							[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/params)  
+							params keyword
+						</small>
+						
+						```
+						static void ShowAverage(params int[] data)
+						{
+							double sum = 0;
+							for (int i = 0; i < data.Length; i++)
+							{
+								sum += data[i];
+							}
+							Console.WriteLine("Average is " + sum / data.Length);
+						}
+
+						static void Main(string[] args)
+						{
+							ShowAverage(20, 15, 7, 63, 44);
+						}
+						```
+
+						<small class="fragment" align="left">
+							a in other method is 5  
+							a in Main method is 5
+						</small>
+					</script>
+				</section>
+
+				<section style="text-align: left;" data-markdown>
+					# THE END
+					
+					[Goto main course](index.html#/1/1)
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

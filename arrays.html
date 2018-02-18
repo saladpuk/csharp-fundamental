@@ -186,6 +186,45 @@
 					</script>
 				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/array.png"> Arrays</h1>
+						
+						Jagged Arrays
+
+						<small>
+								A jagged array is an array whose elements are arrays. The elements of a jagged array can be of different dimensions and sizes. A jagged array is sometimes called an "array of arrays."
+						</small>
+
+						```
+						int[][] jaggedArray = new int[2][];
+						```
+
+						<div class="fragment">
+						```
+						jaggedArray[0] = new int[5];
+						jaggedArray[1] = new int[] { 77, 36 };
+						```
+						</p>
+
+						<div class="fragment">
+						![img](images/jagged-array.png)
+						</p>
+
+						<div class="fragment">
+						```
+						jaggedArray[0][1] = 77;
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						int[,][,] jaggedArray = new int[3,2][,];
+						```
+						</p>
+					</script>
+				</section>
+
 				<section style="text-align: left;" data-markdown>
 					# THE END
 					

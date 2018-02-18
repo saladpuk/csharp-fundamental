@@ -109,7 +109,7 @@
 					<script type="text/template">
 						<h2><img width="50" height="50" data-src="images/valuenreference.png"> Value VS Reference</h1>
 
-						Example
+						Value type
 
 						```
 						int a = 7;      // a = 7
@@ -123,6 +123,20 @@
 							A: 7  
 							B: 9
 						</small>
+
+						<div class="fragment">
+						```
+						int a = 7;      // a = 7
+						int b = a;      // a = 7, b = 7
+						Console.WriteLine(a == b);
+						Console.WriteLine(a == 7);
+						```
+						</p>
+
+						<small class="fragment">
+							True  
+							True  
+						</small>
 					</script>
 				</section>
 
@@ -130,7 +144,7 @@
 					<script type="text/template">
 						<h2><img width="50" height="50" data-src="images/valuenreference.png"> Value VS Reference</h1>
 
-						Example
+						Reference type
 
 						```
 						int[] a = new int[] { 1, 2, 3 };
@@ -139,9 +153,20 @@
 						a[2] = 88;  // a,b --> { 99, 2, 88 }
 						Console.WriteLine(a == b);
 						```
-
 						<small class="fragment">
 							True
+						</small>
+
+						<div class="fragment">
+						```
+						int[] a = new int[] { 1, 2, 3 };
+						int[] b = new int[] { 1, 2, 3 };
+						Console.WriteLine(a == b);
+						```
+						</p>
+
+						<small class="fragment">
+							False
 						</small>
 					</script>
 				</section>

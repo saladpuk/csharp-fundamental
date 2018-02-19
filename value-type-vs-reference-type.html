@@ -28,10 +28,34 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						> <img width="300" height="300" data-src="images/valuenreference.png">
-						### Value type  
-						### VS 
-						### Reference type
+						> <img width="300" height="300" data-src="images/valuenreference.png">  
+						Value type VS Reference type
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/valuenreference.png"> Value VS Reference</h1>
+
+						Problem
+
+						มีตัวแปร a กับ b ซึ่งตัวแปรทั้งสองเป็น data type เดียวกัน
+
+						<div class="fragment" align="center">
+						a = &#9827;;
+						</div>
+						<div class="fragment" align="center">
+						b = a;
+						</div>
+						<div class="fragment" align="center">
+						แก้ไขข้อมูลของตัวแปร b
+						</div>
+
+						<small class="fragment" align="left">
+						ที่บรรทัดนี้ ตัวแปร a มีค่าเป็นอะไร?  
+						ก.&#9827;  
+						ข.เท่ากับตัวแปร b
+						</small>
 					</script>
 				</section>
 
@@ -42,10 +66,8 @@
 						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/types)
 						<small>
 						* There are two kinds of types in C#: <font color="#ff2c2d">value types</font> and <font color="#1b91ff">reference types</font>.
-						* Variables of <font color="#ff2c2d">value types</font> directly contain their data.
-						> * With value types, each variable has its own copy of the data, and it is not possible for operations on one variable to affect the other (except in the case of ref and out parameter variables, see ref and out parameter modifier).
-						* Variables of <font color="#1b91ff">reference types</font> store references to their data.
-						> * With reference types, two variables can reference the same object; therefore, operations on one variable can affect the object referenced by the other variable.
+						* <font color="#ff2c2d">Value types</font> ตัวแปรจะเก็บข้อมูลของมันเอง
+						* <font color="#1b91ff">Reference types</font> ตัวแปรจะเก็บตัวอ้างอิงที่ชี้ไปหาข้อมูล
 
 						</small>
 					</script>
@@ -55,9 +77,9 @@
 					<script type="text/template">
 						<h2><img width="50" height="50" data-src="images/valuenreference.png"> Value VS Reference</h1>
 						
+						**<font color="#ff2c2d">Value types</font>**  
 						<small>
-							Variables of <font color="#ff2c2d">value types</font> directly contain their data.  
-							With value types, each variable has its own copy of the data, and it is not possible for operations on one variable to affect the other (except in the case of ref and out parameter variables, see ref and out parameter modifier).
+							ตัวแปรจะเก็บข้อมูลของมันเอง เมื่อแก้ไขตัวแปรจะไม่ส่งผลกระทบกับตัวแปรอื่น
 						</small>
 
 						<div class="fragment">
@@ -82,9 +104,10 @@
 					<script type="text/template">
 						<h3><img width="50" height="50" data-src="images/valuenreference.png"/> Value VS Reference</h3>
 
+						**<font color="#1b91ff">Reference types</font>**
 						<small>
-							Variables of <font color="#1b91ff">reference types</font> store references to their data.  
-							With reference types, two variables can reference the same object; therefore, operations on one variable can affect the object referenced by the other variable.
+							ตัวแปรจะเก็บตัวอ้างอิงที่ชี้ไปหาข้อมูล ซึ่งข้อมูลสามารถถูกอ้างอิงได้จากหลายตัวแปร  
+							เมื่อแก้ไขตัวแปรจะส่งผลกระทบกับตัวแปรอื่นที่อ้างอิงร่วมกัน
 						</small>
 
 						<div class="fragment">

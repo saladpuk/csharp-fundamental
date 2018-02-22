@@ -1,5 +1,4 @@
-# C# fundamental
+# C# Fundamentals
 
-This repo is for C# course for beginner to expert.  
-You can download/clone and open it in any web browser for play the slide.  
-Free to use & share :)
+เนื้อหาสอนภาษา C# ตั้งสำหรับผู้เริ่มต้น ~ ผู้เชี่ยวชาญ
+สามารถนำไปใช้ต่อ, แก้ไข, เผยแพร่ ได้ตามสะดวกครับ

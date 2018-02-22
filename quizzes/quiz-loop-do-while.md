@@ -3,7 +3,7 @@
 ```
 do
 {
-	Console.WriteLine("Summon a monster!!");
+   Console.WriteLine("Summon a monster!!");
 } while (true);
 ```
 จงแก้ไขคำสั่งด้านบนให้เครื่องหยุดทำการผลิตปีศาจทันที โดยไม่ให้แก้ไขบรรทัด while(true);
@@ -17,13 +17,13 @@ do
 ตัวอย่าง
 
 ```
-Here a cui Cat
+Here a cute cat
 Do you want to see a dog?
 yes
-Dog
+Here an awesome dog
 Do you want to see a cat?
 yes
-Cat
+Here a cute cat
 Do you want to see a dog?
 no
 Good bye :)

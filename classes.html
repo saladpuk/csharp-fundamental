@@ -45,22 +45,248 @@
 
 						Problem
 
-						<small>
-						* Data type ทีมีอยู่ไม่เพียงพอต่อการใช้งานจะทำอย่างไร ?
+						* เมื่อ Data type ทีมีอยู่ไม่เพียงพอต่อการใช้งานจะทำอย่างไร ?
 						* ข้อมูลที่ต้องเก็บมีปริมาณมากๆ และแต่ละข้อมูลก็มีความสัมพันธ์กันด้วย เราจะจัดการอย่างไร ?
-							>* เช่นข้อมูลของนักเรียน 1 คนประกอบด้วย อายุ, คะแนน, รหัสประจำตัว, ชื่อ, นามสกุล
-
-							>```
-							// ตัวแปรสำหรับเก็บข้อมูลของนักเรียน 10 คน
-							int[] ages = new int[10];
-							int[] socres = new int[10];
-							string[] ids = new string[10];
-							string[] firstNames = new string[10];
-							string[] lastNames = new string[10];
-							```
-
+						<small>
+						เช่นข้อมูลของนักเรียน 1 คนประกอบด้วย อายุ, คะแนน, รหัสประจำตัว, ชื่อ, นามสกุล
 						</small>
 
+						```
+						// ตัวแปรสำหรับเก็บข้อมูลของนักเรียน 1 คน
+						int age;
+						int socre;
+						string id;
+						string firstName;
+						string lastName;
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Solution
+
+						> <small><font color="#1b91ff">**Student**</font>  
+						{ อายุ, คะแนน, รหัสประจำตัว, ชื่อ, นามสกุล }
+						</small>
+
+						```
+						// ตัวแปรสำหรับเก็บข้อมูลของนักเรียน 1 คน (แบบเดิม)
+						int age;
+						int socre;
+						string id;
+						string firstName;
+						string lastName;
+						```
+
+						```
+						// ตัวแปรสำหรับเก็บข้อมูลของนักเรียน 1 คน (แบบใหม่)
+						Student s1;
+						```
+
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes)
+
+						คลาสเปรียบเหมือนพิมพ์เขียว ที่เป็นโครงสร้างให้สามารถนำไปสร้าง data type ของคุณเองได้ โดยการรวมเอาตัวแปร data type ต่างๆ Methods และ Events มาอยู่รวมกันภายในคลาส
+
+						> Reference type
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Syntax
+
+						> <font class="fragment" color="#ff2c2d">AccessLevel</font> <font class="fragment" color="#1b91ff">class</font> <font class="fragment" color="#17ff2e">Name</font> <font class="fragment">{ }</font>
+
+						<div class="fragment">
+						```
+						public class Student
+						{
+							// Members
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						การนำคลาสไปใช้ (การสร้าง object)
+
+						> <font class="fragment" color="#ff2c2d">DataType</font> <font class="fragment">ชื่อตัวแปร</font> <font color="#1b91ff" class="fragment"> = new</font> <font class="fragment" color="#ff2c2d">DataType</font> <font class="fragment">();</font>
+
+						<div class="fragment">
+						```
+						public class Student
+						{
+						}
+
+						class Program
+						{
+							static void Main(string[] args)
+							{
+								Student s1 = new Student();
+								Student s2 = s1;
+							}
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Members
+
+						<small>
+						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/members)
+						</small>
+
+						```
+						public class Student
+						{
+							// Fields
+							// Constants
+							// Properties
+							// Methods
+							// Events
+							// Operators
+							// Indexers
+							// Constructors
+							// Finalizers
+							// Nested Types 
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Fields
+						
+						<small>
+						ข้อมูลที่คลาสนั้นๆสนใจ ซึ่งสามารถมีได้หลายตัว
+						</small>
+
+						```
+						public class Student
+						{
+							AccessLevel DataType Name;
+						}
+						```
+
+						<div class="fragment">
+						<hr />
+						```
+						public class Student
+						{
+							public int Age;
+							public int Socre;
+							public string Id;
+							public string FirstName;
+							public string LastName;
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						```
+						public class Student
+						{
+							public int Age;
+							public int Socre;
+							public string Id;
+							public string FirstName;
+							public string LastName;
+						}
+						```
+						```
+						class Program
+						{
+							static void Main(string[] args)
+							{
+								Student s1 = new Student();
+								s1.Age = 22;
+								s1.FirstName = "Sakul";
+								Console.WriteLine(s1.Age);
+								Console.WriteLine(s1.FirstName);
+							}
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Access Modifiers
+
+						ใช้ในการควมคุมสิทธิ์ในการเข้าถึงของที่อยู่ในคลาส ทั้งภายในและภายนอก assemblies
+
+						<small>
+
+						|Keyword|คนที่สามารถเรียกใช้งานได้|
+						|---|---|
+						|<font color="#1b91ff">public</font>|ทุกคน|
+						|<font color="#1b91ff">private</font>|ภายในคลาสมันเองเท่านั้น|
+						|<font color="#1b91ff">protected</font>|ภายในคลาสมันเอง และ คลาสลูกเท่านั้น|
+						|<font color="#1b91ff">internal</font>|ภายใน assembly เดียวกันเท่านั้น|
+						|<font color="#1b91ff">protected internal</font>|ภายใน assembly เดียวกัน หรือคลาสลูกที่อยู่ต่าง assembly|
+						|<font color="#1b91ff">private protected</font>|ภายใน assembly เดียวกัน หรือคลาสลูก|
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						```
+						public class Student
+						{
+							public int Age;
+							private string FirstName;
+						}
+						```
+						```
+						class Program
+						{
+							static void Main(string[] args)
+							{
+								Student s1 = new Student();
+								s1.Age = 22;
+								s1.FirstName = "Sakul";               // error
+							}
+						}
+						```
+
+						<small align="left">
+							<font color="#1b91ff">public</font>: ทุกคน  
+							<font color="#1b91ff">private</font>: ภายในคลาสมันเองเท่านั้น
+						</small>
 					</script>
 				</section>
 

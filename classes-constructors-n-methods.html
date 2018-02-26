@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>C# Fundamental</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-markdown>
+					<script type="text/template">
+						> ยังทำ video ไม่เสร็จ  
+						แต่สามารถดูเนื้อหาก่อนได้ครับ
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						> <img width="300" height="300" data-src="images/exception.png">
+						## template
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Methods
+
+						สิ่งที่คลาสนั้นสามารถทำได้ หรือ พฤติกรรมของคลาส
+
+						```
+						public class Student
+						{
+							// AccessLevel ReturnType Name( Parameters ) { }
+						}
+						```
+
+						<div class="fragment">
+						<hr />
+						```
+						public class Student
+						{
+							public void DoSomething()
+							{
+								Console.WriteLine("Hello world!");
+							}
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Methods
+
+						```
+						public class Student
+						{
+							public void DoSomething()
+							{
+								Console.WriteLine("Hello world!");
+							}
+						}
+						```
+						```
+						class Program
+						{
+							static void Main(string[] args)
+							{
+								Student s1 = new Student();
+								s1.DoSomething();
+							}
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						<font color="#1b91ff">private</font> ใช้ตอนไหน?
+
+						<small class="fragment">
+						Members นั้นเราไม่อยากให้ถูกเข้าถึงได้โดยตรงจากภายนอกคลาส
+						</small>
+
+						<div class="fragment">
+						```
+						public class Student
+						{
+							private string grade;
+						}
+						```
+						เกรดจะต้องได้มากจากการคำนวณเท่านั้น
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						<font color="#1b91ff">private</font> variables
+
+						```
+						public class Student
+						{
+							private string grade;
+
+							public void SetGradeByScore(int score)
+							{
+								if(score > 85) grade = "A";
+								else grade = "F";
+							}
+
+							public string GetGrade()
+							{
+								return grade;
+							}
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Properties
+						
+						<small>Method พิเศษที่ช่วยเข้าถึงตัวแปรเพื่อ อ่าน เขียน คำนวณ</small>
+
+						<div class="fragment">
+						```
+						public class Student
+						{
+							public string Name;
+						}
+						```
+						</p>
+
+						<div class="fragment">
+						<hr />
+						```
+						public class Student
+						{
+							public string Name { get; set; }
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						```
+						public class Student
+						{
+							private string name;
+
+							public string Name
+							{
+								get { return name; }
+								set
+								{
+									name = "Mr." + value;
+								}
+							}
+						}
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						Student s = new Student();
+						s.Name = "john";
+						Console.WriteLine(s.Name);
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						```
+						public class Student
+						{
+							public string Grade { get; private set; }
+							private int score;
+							public int Score
+							{
+								get { return score; }
+								set
+								{
+									if (value > 85) Grade = "A";
+									else Grade = "F";
+								}
+							}
+						}
+						```
+
+						<div class="fragment">
+						```
+						Student s = new Student();
+						s.Score = 95;
+						Console.WriteLine(s.Grade);
+						s.Grade = "A";                 // error
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Constructors
+
+						<small>
+						Method พิเศษตัวแรกที่จะถูกเรียกเมื่อ object ของ class นั้นๆถูกสร้าง
+						</small>
+
+						```
+						ppublic class Student
+						{
+							public Student()
+							{
+								// do something
+							}
+						}
+						```
+
+						<div class="fragment">
+						```
+						Student s = new Student();    // constructor จะถูกเรียกทันที
+						```
+						</p>
+					</script>
+				</section>
+
+				<section style="text-align: left;" data-markdown>
+					# THE END
+					
+					[Goto main course](index.html#/1/1)
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

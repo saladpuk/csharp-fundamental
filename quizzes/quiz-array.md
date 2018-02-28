@@ -1,0 +1,60 @@
+## ข้อ 1.โปรแกรมหาค่าสูงสุด
+โปรแกรมจะรับตัวเลขจากผู้ใช้ทั้งหมด 4 ตัว แล้วโปรแกรมจะนำตัวเลขที่เยอะที่สุดมาแสดงผล
+
+ตัวอย่าง
+```
+Please input a number (1): 3
+Please input a number (2): 7
+Please input a number (3): 9
+Please input a number (4): 5
+The maximum number is: 9
+```
+---
+## ข้อ 2.โปรแกรมหาค่ารองสูงสุด
+ต่อจากข้อ 1 โปรแกรมจะนำเลขที่เยอะที่สุดลำดับที่ 2 มาแสดงผลแทนค่าสูงสุด
+
+ตัวอย่าง
+```
+Please input a number (1): 3
+Please input a number (2): 7
+Please input a number (3): 9
+Please input a number (4): 5
+The 2nd maximum number is: 7
+```
+---
+## ข้อ 3.โปรแกรมจัดการห้องเรียน
+โปรแกรมจะทำการคำนวณให้ว่าผลการเรียนโดยรวมของห้องเป็นอย่างไร โดยโปรแกรมจะให้กำหนดก่อนว่าในห้องมีนักเรียนทั้งหมดกี่คน
+แล้วจะถามให้กำหนดชื่อและคะแนนของนักเรียนแต่ละคน
+แล้วนำมาหาค่าคะแนนเฉลี่ยของห้อง พร้อมบอกเกรดเฉลี่ยของห้อง
+และโปรแกรมจะบอกชื่อนักเรียนคนที่ได้คะแนนสูงสุด และ ต่ำสุด
+โดยที่เกณฑ์การให้คะแนนคิดจาก
+|ช่วงคะแนน|เกรดที่ได้|
+|---|---|
+|90+|A|
+|80+|B|
+|70+|C|
+|60+|D|
+|0-59|F|
+
+ตัวอย่าง
+```
+How many students in your class: 4
+====================================
+What name of Student 1: Anna
+Please input Anna's score: 30
+------------------------------------
+What name of Student 2: Teen
+Please input Teen's score: 43
+------------------------------------
+What name of Student 3: Sola
+Please input Sola's score: 17
+------------------------------------
+What name of Student 4: Gummy
+Please input Sid's score: 63
+------------------------------------
+The average score of class is: 38.25
+The average grade of class is: F
+====================================
+The best student is: Gummy
+The lowest student is: Sola
+```

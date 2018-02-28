@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>C# Fundamental</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-markdown>
+					<script type="text/template">
+						> ยังทำ video ไม่เสร็จ  
+						แต่สามารถดูเนื้อหาก่อนได้ครับ
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						> <img width="300" height="300" data-src="images/class.png">
+						## Class
+						Constructors
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Constructors
+
+						<small>
+							[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors)
+						</small>
+
+						<small>
+						Constructor คือ method พิเศษที่ชื่อเดียวกับ class แต่ไม่มี return type และไม่มี parameters
+						ทุกคลาสจะต้องมี constructor อย่างน้อย 1 ตัวเสมอ (ถ้าไม่มีมันจะแอบใส่ให้)
+						</small>
+
+						```
+						public class Student
+						{
+						}
+						```
+						
+						<div class="fragment">
+						```
+						public class Student
+						{
+							public Student()
+							{
+								// Default constructor
+							}
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Constructors
+
+						<small>
+						เมื่อทำการสร้าง object ของ class ขึ้นมา ตัว constructor จะถูกเรียกใช้งานทันที  
+						(ถ้า class นั้นไม่มี constructor โปรแกรมจะไปเรียก default constructor แทน)
+						</small>
+
+						```
+						public class Student
+						{
+							public Student()
+							{
+								Console.WriteLine("Hi, this message from constructor.");
+							}
+						}
+						```
+						
+						<div class="fragment">
+						```
+						Student s1 = new Student();
+						Student s2 = new Student();
+						```
+						</p>
+
+						<small class="fragment">
+						Hi, this message from constructor.  
+						Hi, this message from constructor.
+						</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Constructors
+
+						<small>
+						Constructor สามารถรับ parameters ได้ เพื่อใช้ในการกำหนดค่าเริ่มต้นให้กับ Fields ต่างๆ
+						</small>
+
+						```
+						public class Student
+						{
+							public int Age;
+							public string Name;
+
+							public Student(int age, string name)
+							{
+								Age = age;
+								Name = name;
+							}
+						}
+						```
+						
+						<div class="fragment">
+						```
+						Student s1 = new Student(22, "John");
+						Student s2 = new Student(47, "Doe");
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Constructors
+
+						<small>
+						Constructor สามารถมีได้มากกว่า 1 ตัว ซึ่งแต่ละตัวต้องรับ parameters ต่างกัน  
+						เมื่อสร้าง object โปรแกรมจะเลือกทำ constructor ที่ตรงกันให้เอง
+						</small>
+
+						```
+						public class Student
+						{
+							public Student(int value)
+							{
+								Console.WriteLine("Constructor A");
+							}
+							public Student(double value)
+							{
+								Console.WriteLine("Constructor B");
+							}
+						}
+						```
+						
+						<div class="fragment">
+						```
+						Student s1 = new Student(44.25);
+						Student s2 = new Student(33);
+						Student s3 = new Student();        // error
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+
+						Private Constructors
+
+						<small>
+						Constructors สามารถกำหนดให้เป็น private ได้ แต่จะไม่สามารถสร้าง object จากคลาสนั้นๆได้  
+						(ส่วนใหญ่จะใช้กับคลาสที่มีแต่ static members เช่น Math class)
+						</small>
+
+						```
+						public class Student
+						{
+							private Student()
+							{
+							}
+						}
+						```
+						
+						<div class="fragment">
+						```
+						Student s3 = new Student();        // error
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						double pi = Math.PI; 
+						```
+						</p>
+					</script>
+				</section>
+
+				<section style="text-align: left;" data-markdown>
+					# THE END
+					
+					[Goto main course](index.html#/1/1)
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

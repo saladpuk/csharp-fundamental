@@ -42,30 +42,175 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						> <img width="300" height="300" data-src="images/exception.png">
-						## template
+						> <img width="300" height="300" data-src="images/class.png">
+						## Class
+						Properties
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Properties</h1>
 
-						Properties
-						
-						<small>Method พิเศษที่ช่วยเข้าถึงตัวแปรเพื่อ อ่าน เขียน คำนวณ</small>
+						Problem
+						<small>
+						ถ้ามี private field ที่จะให้ภายนอกคลาสใช้ 1 ตัว เราต้องสร้าง methods 2 ตัวเพื่อเป็นตัว get และ set ข้อมูล
+						</small>
 
+						```
+						public class Student
+						{
+							private string name;
+
+							public string GetName()
+							{ 
+								return name; 
+							}
+
+							public void SetName(string newValue)
+							{ 
+								name = newValue;
+							}
+						}
+						```
+						<div class="fragment">
+							<small>
+								<font color="#1b91ff">คำถาม: </font>ถ้าภายในคลาสของเรามี private fields 30 ตัว ที่จะให้คลาสภายนอกใช้  
+								เราจะต้องสร้าง get/set methods ออกมา 60 ตัว? แล้วหน้าตา class จะวุ่นวายเกินไปไหม?
+							</small>
+						</div>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Properties</h1>
+
+						Solution
+
+						![img](images/properties.png)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Properties</h1>
+
+						<small>
+						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)  
+						Method พิเศษที่อำนวยความสะดวกในการดำเนินการกับตัวแปรที่เป็น private โดยใช้ตัว <font color="#ff2c2d">accessors</font> มาช่วย
+						</small>
+						<small align="left">
+							<font color="#1b91ff">get</font> - ใช้ในการอ่านข้อมูล  
+							<font color="#1b91ff">set</font> - ใช้ในการกำหนดค่าข้อมูล (โดยใช้ <font color="#1b91ff">value</font> keyword ในการอ้างถึงข้อมูลใหม่ที่จะกำหนด)
+						</small>
+
+						```
+						public class Student
+						{
+							private string name;
+						}
+						```
 						<div class="fragment">
 						```
 						public class Student
 						{
-							public string Name;
+							private string name;
+
+							public string Name 
+							{ 
+								get{ return name; }
+								set{ name = value; }
+							}
 						}
 						```
 						</p>
+					</script>
+				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Properties</h1>
+
+						<small>
+							<font color="#1b91ff">get</font> - ใช้ในการอ่านข้อมูล  
+							(Property สามารถมีแต่ get อย่างเดียวก็ได้)
+						</small>
+
+						```
+						public class Student
+						{
+							public bool IsMale;
+							private string name = "John";
+							
+							public string Name 
+							{ 
+								get
+								{ 
+									// เมื่อดึงข้อมูล name ไป โปรแกรมจะเขียนคำนำหน้าชื่อให้ด้วย
+									string prefix = IsMale ? "Mr." : "Mrs.";
+									return prefix + name;
+								}
+							}
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Properties</h1>
+
+						<small>
+							<font color="#1b91ff">set</font> - ใช้ในการกำหนดค่าข้อมูล (โดยใช้ <font color="#1b91ff">value</font> keyword ในการอ้างถึงข้อมูลใหม่ที่จะกำหนด)  
+							(Property สามารถมีแต่ set อย่างเดียวก็ได้)
+						</small>
+
+						```
+						public class Student
+						{
+							private int score;
+
+							public int Score
+							{
+								set
+								{
+									// คะแนนจะต้องอยู่ระหว่าง 0 ~ 100 เท่านั้น
+									bool isNumberValid = value >= 0 & value <= 100;
+									if(isNumberValid)
+									{
+										score = value;
+									}
+								}
+							}
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Properties</h1>
+
+						Auto-implemented properties
+
+						<small>
+						ใช้สำหรับสร้าง property ที่ไม่ต้องไม่ code การทำงานภายใน
+						</small>
+						
+						```
+						public class Student
+						{
+							private string name;
+
+							public string Name 
+							{ 
+								get{ return name; }
+								set{ name = value; }
+							}
+						}
+						```
 						<div class="fragment">
-						<hr />
 						```
 						public class Student
 						{
@@ -78,63 +223,28 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Properties</h1>
 
+						Auto-implemented properties
+
+						<small>
+						Accessors <font color="#1b91ff">get</font> และ <font color="#1b91ff">set</font> สามารถกำหนด accessibility modifiers ได้
+						</small>
+						
 						```
 						public class Student
 						{
-							private string name;
+							// ภายนอกอ่านข้อมูลไม่ได้ แก้ไขได้อย่างเดียว
+							public string FirstName { private get; set; }
 
-							public string Name
-							{
-								get { return name; }
-								set
-								{
-									name = "Mr." + value;
-								}
-							}
+							// อ่านข้อมูลได้ ภายนอกแก้ไขข้อมูลไม่ได้
+							public string LastName { get; private set; }
+
+							// error ไม่สามารถกำหนด access level ให้กับ accessors พร้อมกันได้
+							public string Id { private get; private set; }
 						}
 						```
 						</p>
-
-						<div class="fragment">
-						```
-						Student s = new Student();
-						s.Name = "john";
-						Console.WriteLine(s.Name);
-						```
-						</p>
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						<h2><img width="50" height="50" data-src="images/class.png"> Class</h1>
-
-						```
-						public class Student
-						{
-							public string Grade { get; private set; }
-							private int score;
-							public int Score
-							{
-								get { return score; }
-								set
-								{
-									if (value > 85) Grade = "A";
-									else Grade = "F";
-								}
-							}
-						}
-						```
-
-						<div class="fragment">
-						```
-						Student s = new Student();
-						s.Score = 95;
-						Console.WriteLine(s.Grade);
-						s.Grade = "A";                 // error
-						```
 					</script>
 				</section>
 

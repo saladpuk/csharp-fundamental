@@ -80,7 +80,8 @@
 						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance)
 
 						<small>
-						ความสามารถของ inheritance จะช่วยให้เราสามารถสร้างคลาสใหม่ โดยนำคลาสที่มีอยู่แล้วมาต่อยอดความสามารถใหม่ๆ หรือแก้ไขการทำงานให้เป็นรูปแบบใหม่ได้ (Code reuse)  
+						Inheritance ช่วยในการสร้างคลาสใหม่ โดยนำคลาสที่มีอยู่มาต่อยอดให้กลายเป็นคลาสใหม่  
+						โดยที่เราจะยังคงความสามารถของคลาสเดิมไว้ หรือจะเปลี่ยนการทำงานไปเลยก็ได้ (Code reuse)  
 						</small>
 
 						<small align="left">
@@ -89,6 +90,122 @@
 						</small>
 
 						![img](images/class-inheritance-03.png)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Inheritance</h1>
+
+						<small align="left">
+							<font color="#1b91ff">Base class</font> - (คลาสแม่)  
+							<font color="#1b91ff">Derived class</font> - (คลาสลูก) นำคลาสที่มีอยู่มาต่อยอดให้กลายเป็นคลาสใหม่ และจะมีทุกอย่างที่คลาสแม่มี ยกเว้น constructors และ finalizers
+						</small>
+
+						```
+						public class Animal
+						{
+							public int Age { get; set; }
+							public string Name { get; set; }
+							public int Legs { get; set; }
+
+							public void Walk(){ Console.WriteLine(Name + " is walking."); }
+							public void Goes(){ Console.WriteLine("Goes like an animal."); }
+						}
+						```
+						<div class="fragment">
+						```
+						// คลาส Dog สืบทอดมาจากคลาส Animal
+						public class Dog : Animal
+						{
+						}
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						Dog d1 = new Dog();
+						d1.Name = "Diggy"
+						d1.Walk();                    // Diggy is walking.
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Inheritance</h1>
+
+						<small align="left">
+							<font color="#1b91ff">Derived class</font> - (คลาสลูก) สามารถต่อยอดความสามารถจากคลาสแม่ได้  
+							<font color="#1b91ff">Base class</font> - (คลาสแม่) จะไม่ได้รับความสามารถใหม่จากที่คลาสลูกเพิ่มเติมเข้าไป
+						</small>
+
+						```
+						public class Animal
+						{
+							public int Age { get; set; }
+							public string Name { get; set; }
+							public int Legs { get; set; }
+							// อื่นๆ ...
+						}
+						```
+						<div class="fragment">
+						```
+						public class Bird : Animal
+						{
+							public int Wings { get; set; } // ความสามารถใหม่ที่คลาสลูกเพิ่มเติมเข้าไป
+						}
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						Bird b1 = new Bird();
+						b1.Wings = 2;
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						Animal a1 = new Animal();
+						a1.Wings = 9;                      // error ความสามารถใหม่ของลูกจะไม่ส่งให้แม่
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Inheritance</h1>
+
+						<small align="left">
+							ถ้าคลาสลูก <font color="#1b91ff">Derived class</font> มีของที่เหมือนกับคลาสแม่ <font color="#1b91ff">Base class</font>  
+							เมื่อเรียกใช้สิ่งนั้นคลาสไหน มันจะไปทำงานกับคลาสนั้นๆ
+						</small>
+
+						```
+						public class Animal
+						{
+							public void Walk(){ Console.WriteLine("Walk by base class"); }
+						}
+						
+						public class Bird : Animal
+						{
+							public void Walk(){ Console.WriteLine("Walk by derived class"); }
+						}
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						Animal a1 = new Animal();
+						a1.Walk();                       // Walk by base class
+
+						Bird b1 = new Bird();
+						b1.Walk();                       // Walk by derived class
+						```
+						</p>
 					</script>
 				</section>
 

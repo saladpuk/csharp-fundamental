@@ -53,9 +53,152 @@
 						<h2><img width="50" height="50" data-src="images/class.png"> Class - Polymorphism</h1>
 
 						Problem
+						<small>
+						คลาสในระบบมีปริมาณมาก แล้วจะทำงานด้วยจะเขียนโปรแกรมเพื่อทำงานกับคลาสเหล่านั้นอย่างไร
+						</small>
 
-						xxxxx
+						![img](images/class-inheritance-01.png)
+
+						<div class="fragment">
+						```
+						public void LetItWalk(Dog it)
+						{
+							it.Walk(); 
+						}
+						```
+
+						```
+						Dog doggy = new Dog();
+						LetWalk(doggy);
+						```
+						</p>
+						<div class="fragment">
+						```
+						Cat catty = new Cat();
+						LetWalk(catty);               // error
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Polymorphism</h1>
+
+						Solution
+
+						![img](images/class-inheritance-04.png)
+
+						```
+						public void LetItWalk(Animal it)
+						{
+							it.Walk(); 
+						}
+						```
+
+						```
+						Dog doggy = new Dog();
+						LetWalk(doggy);
 						
+						Cat catty = new Cat();
+						LetWalk(catty);
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Polymorphism</h1>
+
+						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism)
+
+						<small>
+						(รากศัพท์-กรีก) Poly = หลากหลาย, morph = การเปลี่ยนรูป  
+						Polymorphism = การเปลี่ยนรูปได้หลากหลาย
+						</small>
+
+						1. object ของคลาสลูก สามารถเปลี่ยนรูปให้อยู่ใน object ของคลาสแม่ได้
+						1. คลาสแม่สามารถสร้างต้นแบบการทำงานไว้ได้ ส่วนคลาสลูกสามารถแก้ไขการทำงานเป็นรูปแบบของตัวเองได้
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Polymorphism</h1>
+
+						<small>
+						1.object ของคลาสลูก สามารถเปลี่ยนรูปให้อยู่ใน object ของคลาสแม่ได้  
+						(แต่ object ของคลาสแม่ จะไม่สามารถเปลี่ยนให้อยู่ใน object ของคลาสลูกได้)
+						</small>
+
+						```
+						public class Animal
+						{
+						}
+
+						public class Dog : Animal
+						{
+						}
+
+						public class Cat : Animal
+						{
+						}
+						```
+
+						<div class="fragment">
+						```
+						Dog doggy = new Dog();
+						Animal ani1 = doggy;
+						Animal ani2 = new Cat();
+						```
+						</p>
+						
+						<div class="fragment">
+						```
+						Cat cat = new Animal();       // error object แม่แปลงเป็นลูกไม่ได้
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Polymorphism</h1>
+
+						<small>
+						1.object ของคลาสลูก สามารถเปลี่ยนรูปให้อยู่ใน object ของคลาสแม่ได้  
+						</small>
+
+						```
+						public class Animal
+						{
+							public void Walk() { Console.WriteLine("Walk like an animal."); }
+						}
+
+						public class Dog : Animal{}
+						public class Cat : Animal{}
+						```
+
+						<div class="fragment">
+						```
+						public void LetItWalk(Animal it)
+						{
+							it.Walk(); 
+						}
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						Animal ani1 = new Dog();
+						Animal ani2 = new Cat();
+						Animal ani3 = new Animal();
+
+						LetItWalk(ani1);              // Walk like an animal.
+						LetItWalk(ani2);              // Walk like an animal.
+						LetItWalk(ani3);              // Walk like an animal.
+						```
+						</p>
 					</script>
 				</section>
 
@@ -64,39 +207,60 @@
 						<h2><img width="50" height="50" data-src="images/class.png"> Class - Inheritance</h1>
 
 						<small align="left">
-							<font color="#1b91ff">Base class</font> - (คลาสแม่) สามารถเปิดให้คลาสลูกแก้ไขพฤติกรรมของตัวเองได้ โดยใ้ช virtual keyword  
-							<font color="#1b91ff">Derived class</font> - (คลาสลูก) สามารถเปลี่ยนการทำงานของคลาสแม่ได้ โดยใช้ override keyword
+							2.คลาสแม่สามารถสร้างต้นแบบการทำงานไว้ได้โดยใช้ <font color="#1b91ff">virtual</font> keyword  
+							ส่วนคลาสลูกสามารถแก้ไขการทำงานเป็นรูปแบบของตัวเองได้ โดยใช้ <font color="#1b91ff">override</font> keyword
 						</small>
 
 						```
 						public class Animal
 						{
-							public virtual void Goes()
-							{ 
-								Console.WriteLine("Goes like an animal."); 
-							}
+						   public virtual void Goes() { Console.WriteLine("Goes like an animal."); }
 						}
-						```
-						<div class="fragment">
-						```
+
 						public class Dog : Animal
 						{
-							public override void Goes()
-							{
-								Console.WriteLine("Woof! Woof!");
-							}
+						   public override void Goes() { Console.WriteLine("Woof! Woof!"); }
 						}
 						```
-						</p>
 
 						<div class="fragment">
 						```
-						Animal a1 = new Animal();
-						a1.Goes();                    // Goes like an animal.
-						Dog d1 = new Dog();
-						d1.Goes();                    // Woof! Woof!
+						Dog doggy = new Dog();
+						doggy.Goes();                 // Woof! Woof!
+
+						Animal animal = doggy;
+						animal.Goes();                // Woof! Woof!
 						```
-						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/caution.png"> Class - Inheritance</h1>
+
+						<small align="left">
+							ถ้าคลาสลูกมีของที่ซ้ำกับแม่ แต่ไม่ได้ทำ <font color="#1b91ff">override</font> ถ้าทำ polymorphism มันจะไปใช้งานในรูปแบบของแม่
+						</small>
+
+						```
+						public class Animal
+						{
+						   public virtual void Goes() { Console.WriteLine("Goes like an animal.");}
+						}
+
+						public class Dog : Animal
+						{
+						   public void Goes() { Console.WriteLine("Woof! Woof!"); }
+						}
+						```
+
+						```
+						Dog doggy = new Dog();
+						doggy.Goes();                 // Woof! Woof!
+
+						Animal animal = doggy;
+						animal.Goes();                // Goes like an animal.
+						```
 					</script>
 				</section>
 
@@ -105,38 +269,118 @@
 						<h2><img width="50" height="50" data-src="images/class.png"> Class - Inheritance</h1>
 
 						<small align="left">
-							<font color="#1b91ff">Derived class</font> - (คลาสลูก) สามารถมีของที่ชื่อเหมือนแม่โดยไม่ต้องทำ override ก็ได้โดยใช้ new keyword
+							(ต่อจากตัวอย่างเมื้อกี้) กรณีที่เป็นแบบนั้นคือคลาสลูกจะซ่อนของที่แม่มีโดยใช้ <font color="#1b91ff">new</font> keyword
 						</small>
 
 						```
 						public class Animal
 						{
-							public void Goes()
-							{ 
-								Console.WriteLine("Goes like an animal."); 
-							}
+							public void Goes() { Console.WriteLine("Goes like an animal.");}
 						}
-						```
-						<div class="fragment">
-						```
+
 						public class Dog : Animal
 						{
-							public new void Goes()
-							{
-								Console.WriteLine("Woof! Woof!");
-							}
+							public new void Goes() { Console.WriteLine("Woof! Woof!"); }
 						}
 						```
-						</p>
 
-						<div class="fragment">
 						```
-						Animal a1 = new Animal();
-						a1.Goes();                    // Goes like an animal.
-						Dog d1 = new Dog();
-						d1.Goes();                    // Woof! Woof!
+						Dog doggy = new Dog();
+						doggy.Goes();                 // Woof! Woof!
+						
+						Animal animal = doggy;
+						animal.Goes();                // Goes like an animal.
 						```
-						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Inheritance</h1>
+
+						<small>
+							กรณีที่ต้องการให้คลาสลูกเรียกใช้สิ่งของต้นตำหรับจากคลาสแม่ สามารถใช้ <font color="#1b91ff">base</font> keyword ได้
+						</small>
+
+						```
+						public class Animal
+						{
+						   public virtual void Goes() { Console.WriteLine("Goes like an animal"); }
+						   public Animal(int num) { Console.WriteLine("Animal ctor: " + num); }
+						}
+
+						public class Dog : Animal
+						{
+						   public override void Goes()
+						   {
+						   	  base.Goes();
+						   	  Console.WriteLine("Woof! Woof!");
+						   }
+
+						   public Dog(int num, string name) : base(num)
+						   {
+						   	  Console.WriteLine("Dog ctor: " + name);
+						   }
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Inheritance</h1>
+
+						<small align="left">
+							กรณีที่เราไม่ต้องการให้คลาสลูกทำ override ได้ต่อแล้ว  
+							สามารถใช้ <font color="#1b91ff">sealed</font> keywords เพื่อหยุดความเป็น virtual ได้
+						</small>
+
+						```
+						public class Animal
+						{
+							public virtual void Goes(){ Console.WriteLine("Goes like an animal"); }
+						}
+
+						public class Dog : Animal
+						{
+							public override  void Goes() { Console.WriteLine("Woof! Woof!"); }
+						}
+
+						public class SiberianHusky : Dog
+						{
+							public sealed override void Goes() { Console.WriteLine("Woooooof!"); }
+						}
+
+						public class MiniHusky : SiberianHusky
+						{
+							// error ไม่สามารถ override ได้เพราะคลาสแม่ปิดความสามารถ virtual แล้ว
+							public override void Goes() { Console.WriteLine("Wooz!"); }
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - Inheritance</h1>
+
+						<small align="left">
+							กรณีที่เราไม่ต้องการให้คลาสนั้นๆถูกนำไปทำเป็นคลาสแม่  
+							สามารถใช้ <font color="#1b91ff">sealed</font> keywords เพื่อปิดความสามารถการ inherit ได้
+						</small>
+
+						```
+						public sealed class Animal
+						{
+							// error method นี้ไม่สามารถใช้ virtual ได้เพราะมันไม่สามารถมีลูกได้ต่อ
+							public virtual void Goes(){Console.WriteLine("Goes like an animal");}
+						}
+
+						// error ไม่สามารถทำได้เพราะ Animal ปิดความสามารถในการทำ inheritance แล้ว
+						public class Dog : Animal
+						{
+						}
+						```
 					</script>
 				</section>
 

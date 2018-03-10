@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>C# Fundamental</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114921711-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-114921711-1');
+		</script>
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-markdown>
+					<script type="text/template">
+						> <img width="300" height="300" data-src="images/class.png">
+						## Class
+						Abstract
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - abstract</h1>
+
+						Problem
+
+						<small>
+						ในบางกรณีคลาสแม่ก็ไม่สามารถตอบได้ว่าการทำงานของ method นั้นๆจะเป็นอย่างไร  
+						ส่วนคลาสที่รู้ว่าจะทำงานยังไงคือคลาสลูก เราจะออกแบบคลาสแม่อย่างไร ?
+						</small>
+
+						![img](images/abstract01.png)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - abstract</h1>
+
+						Solution
+
+						<small>
+						เราสามารถสร้างคลาสที่เป็น template ไว้ได้ ซึ่งส่วนที่คลาสนั้นๆตัดสินใจไม่ได้ว่าจะเขียนการทำงานอย่างไร  
+						การตัดสินใจว่าส่วนนั้นจะเป็นอย่างไรจะเป็นหน้าที่ของคลาสลูก
+						</small>
+
+						![img](images/abstract02.png)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - abstract</h1>
+
+						[Microsoft reference](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members)
+
+						Abstract class
+						<small>
+						* เป็นคลาสที่มีของบางที่ยังทำไม่เสร็จอยู่ภายในคลาส เช่น methods, properties, indexers และ events  
+						* abstract class จะไม่สามารถถูกนำไปสร้างเป็น object ได้
+						* คลาสที่ประกาศเป็น abstract หมายถึงเป็นการแจ้งเจตนาว่าจะเป็น base class เท่านั้น  
+						* สิ่งที่ยังทำงานไม่เสร็จจะต้องถูกเขียนในคลาสลูก  
+						* สามารถมี member ที่สมบูรณ์ได้
+						* สามารถ inherit ได้ปรกติ แต่ถ้า inherit จาก abstract class จะยังไม่ implement abstract members ก็ได้
+
+						</small>
+
+						```
+						public abstract class Shape
+						{
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - abstract</h1>
+
+						<small>
+						เป็นคลาสที่มีของบางที่ยังทำไม่เสร็จอยู่ภายในคลาส เช่น methods, properties, indexers และ events  
+						(ของที่ยังไม่เสร็จจะต้องประกาศเป็น abstract ด้วย) abstract class จะไม่สามารถถูกนำไปสร้างเป็น object ได้
+						</small>
+
+						```
+						public abstract class Shape
+						{
+							public abstract double GetArea();
+						}
+						```
+
+						<div class="fragment">
+						```
+						Shape s01 = new Shape();      // error ไม่สามารถนำไปสร้าง object ได้
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - abstract</h1>
+
+						<small>
+						คลาสที่ประกาศเป็น abstract หมายถึงเป็นการแจ้งเจตนาว่าจะเป็น base class เท่านั้น  
+						( สิ่งที่ยังทำงานไม่เสร็จจะต้องถูกเขียนในคลาสลูก )
+						</small>
+
+						```
+						public abstract class Shape
+						{
+							public abstract double GetArea();
+						}
+						```
+
+						<div class="fragment">
+						```
+						public class Circle : Shape
+						{
+							public override double GetArea()
+							{
+								// สูตรในการคำนวณพื้นที่วงกลม
+								return 99;
+							}
+						}
+						```
+						</p>
+
+						<div class="fragment">
+						```
+						Circle myObj = new Circle();
+						double area = myObj.GetArea();          // area = 99
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - abstract</h1>
+
+						<small>
+						สามารถมี member ที่สมบูรณ์ได้
+						</small>
+
+						```
+						public abstract class Shape
+						{
+							public abstract double GetArea();
+							
+							public void Draw()
+							{
+								Console.WriteLine("Draw a shape.");
+							}
+						}
+						```
+
+						```
+						public class Circle : Shape
+						{
+							public override double GetArea()
+							{
+								return 99;
+							}
+						}
+						```
+
+						<div class="fragment">
+						```
+						Circle myObj = new Circle();
+						dmyObj.Draw();                // Draw a shape.
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/class.png"> Class - abstract</h1>
+
+						<small>
+						สามารถ inherit ได้ปรกติ แต่ถ้า inherit จาก abstract class จะยังไม่ implement abstract members ก็ได้
+						</small>
+
+						```
+						public abstract class Shape
+						{
+							public abstract double GetArea();
+						}
+
+						public abstract class CircleBase : Shape
+						{
+							public double Radius { get; private set; }
+
+							public CircleBase(double radius)
+							{
+								Radius = radius;
+							}
+						}
+						```
+
+						<div class="fragment">
+						```
+						public class Circle : CircleBase
+						{
+							public Circle(double radius) : base(radius) { }
+							public override double GetArea() { return 3.141 * Radius * Radius; }
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section style="text-align: left;" data-markdown>
+					# THE END
+					
+					[Goto main course](index.html#/1/1)
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

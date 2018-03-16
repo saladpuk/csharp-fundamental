@@ -113,10 +113,132 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						> กำลังจัดทำ
+						<h2><img width="50" height="50" data-src="images/interface.png"> Interface</h1>
+
+						<small>การนำ interface มาใช้ - คลาสที่ implement interface จะต้องกำหนดการทำงานของเค้าโครงที่ได้มา</small>
+
+						```
+						public interface Electronic
+						{
+							void TurnOn();
+							void TurnOff();
+						}
+						```
+
+						```
+						public class Computer
+						{
+							public void Start(){ Console.WriteLine("PC is starting"); }
+							public void Shutdown(){ Console.WriteLine("PC is shutting down"); }
+						}
+						```
+
+						<div class="fragment">
+						```
+						public class Computer : Electronic
+						{
+							public void Start(){ Console.WriteLine("PC is starting"); }
+							public void Shutdown(){ Console.WriteLine("PC is shutting down"); }
+
+							public void TurnOn(){ Start(); }
+							public void TurnOff(){ Shutdown(); }
+						}
+						```
+						</p>
 					</script>
 				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/interface.png"> Interface</h1>
+
+						<small>การนำ interface มาใช้ - คลาสที่ implement interface จะต้องกำหนดการทำงานของเค้าโครงที่ได้มา (2)</small>
+
+						```
+						public interface Electronic
+						{
+							void TurnOn();
+							void TurnOff();
+						}
+						```
+
+						```
+						public class TV
+						{
+							public void TurnOn(){ Console.WriteLine("TV is on"); }
+							public void TurnOff(){ Console.WriteLine("TV is off"); }
+						}
+						```
+
+						<div class="fragment">
+						<hr />
+						```
+						public class TV : Electronic
+						{
+							public void TurnOn(){ Console.WriteLine("TV is on"); }
+							public void TurnOff(){ Console.WriteLine("TV is off"); }
+						}
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/interface.png"> Interface</h1>
+						```
+						public class SmartRemote
+						{
+							private int thingIndex = 0;
+							private Electronic[] things = new Electronic[10];
+
+							public void AddThing(Electronic thing)
+							{
+								things[thingIndex++] = thing;
+							}
+
+							public void PlayAll()
+							{
+								for (int i = 0; i < things.Length; i++)
+									things[i].TurnOn();
+							}
+
+							public void StopAll()
+							{
+								for (int i = 0; i < things.Length; i++)
+									things[i].TurnOff();
+							}
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/interface.png"> Interface</h1>
+
+						<small>การนำ interface มาใช้ - คลาสที่ implement interface สามารถ implement ได้หลาย interface พร้อมกัน</small>
+
+						![img](images\interface-04.png)
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/interface.png"> Interface</h1>
+						
+						Abstract vs Interface
+
+						||Abstract|Interface|
+						|---|---|---|
+						|สร้างเค้าโครง method, properties, events, indexers|/|/|
+						|มี code implementation สมบูรณ์|/||
+						|คลาสลูกสามารถ implement ได้มากกว่า 1 ตัว||/|
+
+					</script>
+				</section>
+				
 				<section style="text-align: left;" data-markdown>
 					# THE END
 					

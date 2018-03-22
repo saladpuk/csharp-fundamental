@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>C# Fundamental</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114921711-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-114921711-1');
+		</script>
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-markdown>
+					<script type="text/template">
+						> ยังทำ video ไม่เสร็จ  
+						แต่สามารถดูเนื้อหาก่อนได้ครับ
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						> <img width="300" height="300" data-src="images/enum.png">
+						## enum
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/enum.png"> enum</h1>
+
+						Problem
+
+						<small>
+						เมื่อเรามีข้อมูลที่เก็บในรูปแบบจำกัด เช่นวันในสัปดาห์  
+						จันทร์, อังคาร, พุธ, พฤหัษบดี, ศุกร์, เสาร์, อาทิตย์  
+						เราจะเก็บข้อมูลหรือตรวจสอบ ของพวกนี้อย่างไร ?
+						</small>
+
+						```
+						string today = "sun";
+
+						if(today == "sun")
+						{
+						}
+						```
+						```
+						int today = 1;
+						
+						if(today == 1)
+						{
+						}
+						```
+						ตรวจสอบว่าวันนี้เป็นวันอาทิตย์หรือไม่
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/enum.png"> enum</h1>
+
+						Solution
+
+						<small>
+						สร้างเซตของชื่อที่จะใช้งาน เพื่อใช้ในการกำหนดค่า
+						</small>
+
+						```
+						public enum Day
+						{
+							Sunday, 
+							Monday, 
+							Tuesday, 
+							Wednesday, 
+							Thursday, 
+							Friday, 
+							Saturday
+						}
+						```
+						```
+						Day today = Day.Sunday;					
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/enum.png"> enum</h1>
+
+						<small>
+						โดยปรกติ enum จะเก็บข้อมูลในรูปตัวเลข (int) โดยตัวแรกเริ่มจากเลข 0 แล้วตัวถัดไปจะเพิ่มเลขขึ้นไปเรื่อยๆ
+						</small>
+
+						```
+						public enum Day
+						{
+							Sunday,         // 0
+							Monday,         // 1
+							Tuesday,        // 2
+							Wednesday,      // 3
+							Thursday,       // 4
+							Friday,         // 5
+							Saturday        // 6
+						}
+						```
+						```
+						Day today = Day.Sunday;
+
+						int a = (int)today;
+						Console.WriteLine(a);                        // 0
+						Console.WriteLine((int)Day.Friday);          // 5
+						```
+						<div class="fragment">
+						```
+						Day meetingDay = (Day)6;
+						Console.WriteLine(meetingDay);               // Saturday
+						```
+						</p>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/enum.png"> enum</h1>
+
+						<small>
+						ถ้าไม่ต้องการให้โปรแกรมกำหนดค่าให้ เราสามารถกำหนดค่าได้เอง
+						</small>
+
+						```
+						public enum Day
+						{
+							Sunday = 3,                              // 3
+							Monday = 6,                              // 6
+							Tuesday = 9,                             // 9
+							Wednesday = Sunday + 9,                  // 12
+							Thursday,                                // 13
+							Friday,                                  // 14
+							Saturday,                                // 15
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h2><img width="50" height="50" data-src="images/enum.png"> enum</h1>
+
+						<small>
+						การนำ enum มาใช้กับ switch case
+						</small>
+
+						```
+						public enum Day
+						{
+							Sunday, 
+							Monday, 
+							Tuesday, 
+						}
+						```
+						```
+						Day today = Day.Sunday;
+
+						switch (today)
+						{
+							case Day.Sunday:
+								break;
+							case Day.Monday:
+								break;
+							case Day.Tuesday:
+								break;
+							default:
+								break;
+						}
+						```
+					</script>
+				</section>
+
+				<section style="text-align: left;" data-markdown>
+					# THE END
+					
+					[Goto main course](index.html#/1/1)
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

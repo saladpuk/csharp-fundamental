@@ -1,7 +1,5 @@
 # C# Fundamentals
 
-# GitPitch presentation template
-
 ## ดูวีดีโอคอร์สนี้ได้จากลิงค์นี้
 [Youtube](https://www.youtube.com/watch?v=9Pjz8MGFJGo&list=PLUjAn8nwWnijERZ3HpzBk7NfSrau74_lQ)
 
